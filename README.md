@@ -1,7 +1,7 @@
 # Steam Deck Plugin Loader
 
 ### Changes from [upstream](https://github.com/SteamDeckHomebrew/PluginLoader):
-- Plugins folder moved to ~/.local to follow FreeDesktop standards.
+- Plugins folder moved to ~/.local to follow FreeDesktop standards. ([Issue](https://github.com/SteamDeckHomebrew/PluginLoader/issues/66))
     - This may break some plugins, however these should be very easy to fix.
 - Improvements to the install script.
 

@@ -60,7 +60,7 @@ class PluginManager:
         if context["message"] == "Unclosed connection":
             return
         loop.default_exception_handler(context)
-                
+
     async def loader_reinjector(self):
         finished_reinjection = False
         logger.info("Plugin loader isn't present in Steam anymore, reinjecting...")
