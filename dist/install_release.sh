@@ -12,7 +12,7 @@ sudo -u "$USER" mkdir -p "${HOMEBREW_FOLDER}/services"
 sudo -u "$USER" mkdir -p "${HOMEBREW_FOLDER}/plugins"
 
 # Download latest release and install it
-curl -L https://github.com/SteamDeckHomebrew/PluginLoader/releases/latest/download/PluginLoader --output "${HOMEBREW_FOLDER}/services/PluginLoader"
+curl -L https://github.com/logan2611/PluginLoader/releases/latest/download/PluginLoader --output "${HOMEBREW_FOLDER}/services/PluginLoader"
 chmod +x "${HOMEBREW_FOLDER}/services/PluginLoader"
 
 systemctl --user disable --now plugin_loader 2> /dev/null
