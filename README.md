@@ -27,17 +27,19 @@
         ```
         curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh
         mkdir -p ~/.local/share/homebrew
-        sudo mv ~/homebrew ~/.local/share/homebrew
+        sudo mv ~/homebrew ~/.local/share/
         sudo chown -R deck: ~/.local/share/homebrew
         find ~/.local/share/homebrew -type d -exec chmod 0755 {} \;
         find ~/.local/share/homebrew -type f -exec chmod 0644 {} \;
         curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sh
         ```
     - For developers:
+
+        Nightly releases are currently broken.
         ```
         curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh
         mkdir -p ~/.local/share/homebrew
-        sudo mv ~/homebrew ~/.local/share/homebrew
+        sudo mv ~/homebrew ~/.local/share/
         sudo chown -R deck: ~/.local/share/homebrew
         find ~/.local/share/homebrew -type d -exec chmod 0755 {} \;
         find ~/.local/share/homebrew -type f -exec chmod 0644 {} \;
