@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ "$UID" -eq 0 ]; then
+    echo "Please run this as root."
+    exit 1
+fi
+
 echo "Uninstalling Steam Deck Plugin Loader..."
 
 HOMEBREW_FOLDER="${HOME}/.local/share/homebrew/"

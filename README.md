@@ -14,7 +14,7 @@
 6. Make sure you have a password set with the "passwd" command in terminal to install it ([YouTube Guide](https://www.youtube.com/watch?v=1vOMYGj22rQ)).
 7. Open a terminal and paste the following command into it:
     - For users:
-        - `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sh`
+        - `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sudo sh`
     - For developers:
      	- ~~- `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_nightly.sh | sh`~~
 
@@ -25,25 +25,25 @@
 1. Open a terminal and paste the following commands into it:
     - For users:
         ```
-        curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh
+        curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sudo sh
         mkdir -p ~/.local/share/homebrew
         sudo mv ~/homebrew ~/.local/share/
         sudo chown -R deck: ~/.local/share/homebrew
         find ~/.local/share/homebrew -type d -exec chmod 0755 {} \;
         find ~/.local/share/homebrew -type f -exec chmod 0644 {} \;
-        curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sh
+        curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sudo sh
         ```
     - For developers:
 
         Nightly releases are currently broken.
         ```
-        curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh
+        curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sudo sh
         mkdir -p ~/.local/share/homebrew
         sudo mv ~/homebrew ~/.local/share/
         sudo chown -R deck: ~/.local/share/homebrew
         find ~/.local/share/homebrew -type d -exec chmod 0755 {} \;
         find ~/.local/share/homebrew -type f -exec chmod 0644 {} \;
-        curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_nightly.sh | sh
+        curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_nightly.sh | sudo sh
         ```
 
 ### Install Plugins
@@ -52,4 +52,4 @@
 ### Uninstall
 - Open a terminal and paste the following command into it:
     - For both users and developers:
-        - `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/uninstall.sh | sh`
+        - `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/uninstall.sh | sudo sh`

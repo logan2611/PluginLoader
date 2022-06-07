@@ -1,6 +1,9 @@
 #!/bin/sh
 
-[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
+if [ "$UID" -eq 0 ]; then
+    echo "Please run this as root."
+    exit 1
+fi
 
 echo "Installing Steam Deck Plugin Loader nightly..."
 
