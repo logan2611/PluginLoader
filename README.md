@@ -1,6 +1,9 @@
-# Plugin Loader [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/ZU74G2NJzk)
+# Steam Deck Plugin Loader
 
-![steamuserimages-a akamaihd](https://user-images.githubusercontent.com/10835354/161068262-ca723dc5-6795-417a-80f6-d8c1f9d03e93.jpg)
+### Changes from [upstream](https://github.com/SteamDeckHomebrew/PluginLoader):
+- Plugins folder moved to ~/.local to follow FreeDesktop standards.
+    - This may break some plugins, however these should be very easy to fix.
+- Improvements to the install script.
 
 ## Installation
 1. Go into the Steam Deck Settings
@@ -9,36 +12,42 @@
 4. Under Miscellaneous, enable `CEF Remote Debugging`
 5. Click on the `STEAM` button and select `Power` -> `Switch to Desktop`
 6. Make sure you have a password set with the "passwd" command in terminal to install it ([YouTube Guide](https://www.youtube.com/watch?v=1vOMYGj22rQ)).
-7. Open a terminal and paste the following command into it: 
+7. Open a terminal and paste the following command into it:
     - For users:
-        - `curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/install_release.sh | sh`
+        - `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sh`
     - For developers:
-        ~~- `curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/install_nightly.sh | sh`~~
+     	- ~~- `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_nightly.sh | sh`~~
+
         Nightly releases are currently broken.
 8. Done! Reboot back into Gaming mode and enjoy your plugins!
 
+## Migration from vanilla version
+1. Open a terminal and paste the following commands into it:
+    - For users:
+        ```
+        curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh
+        mkdir -p ~/.local/share/homebrew
+        sudo mv ~/homebrew ~/.local/share/homebrew
+        sudo chown -R deck: ~/.local/share/homebrew
+        find ~/.local/share/homebrew -type d -exec chmod 0755 {} \;
+        find ~/.local/share/homebrew -type f -exec chmod 0644 {} \;
+        curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_release.sh | sh
+        ```
+    - For developers:
+        ```
+        curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh
+        mkdir -p ~/.local/share/homebrew
+        sudo mv ~/homebrew ~/.local/share/homebrew
+        sudo chown -R deck: ~/.local/share/homebrew
+        find ~/.local/share/homebrew -type d -exec chmod 0755 {} \;
+        find ~/.local/share/homebrew -type f -exec chmod 0644 {} \;
+        curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/install_nightly.sh | sh
+        ```
+
 ### Install Plugins
-- Simply copy the plugin's folder into `~/homebrew/plugins`
+- Simply copy the plugin's folder into `~/.local/share/homebrew/plugins`
 
 ### Uninstall
 - Open a terminal and paste the following command into it:
     - For both users and developers:
-        - `curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/uninstall.sh | sh`
-
-### Developing plugins
-- There is no complete plugin development documentation yet. However a good starting point is the [Plugin Template](https://github.com/SteamDeckHomebrew/Plugin-Template) repository
-
-## Features
-- Clean injecting and loading of one or more plugins
-- Persistent. It doesn't need to be reinstalled after every system update 
-- Allows 2-way communication between the plugins and the loader.
-- Allows plugins to define python functions and run them from javascript.
-- Allows plugins to make fetch calls, bypassing cors completely.
-
-## Caveats
-
-- You can only interact with the Plugin Menu via touchscreen.
-
-## Credit
-
-The original idea for the concept is based on the work of [marios8543's steamdeck-ui-inject](https://github.com/marios8543/steamdeck-ui-inject) project.
+        - `curl -L https://github.com/logan2611/PluginLoader/raw/main/dist/uninstall.sh | sh`
