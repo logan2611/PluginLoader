@@ -36,8 +36,8 @@ class PluginBrowser:
         zip_file = ZipFile(zip)
         zip_file.extractall(self.plugin_path)
         rename(path.join(self.plugin_path, zip_file.namelist()[0]), path.join(self.plugin_path, name))
-        Popen(["chown", "-R", "deck:deck", self.plugin_path])
-        Popen(["chmod", "-R", "555", self.plugin_path])
+        #Popen(["chown", "-R", "deck:deck", self.plugin_path])
+        #Popen(["chmod", "-R", "555", self.plugin_path])
         return True
 
     async def _install(self, artifact, version, hash):
@@ -71,7 +71,7 @@ class PluginBrowser:
 
     async def redirect_to_store(self, request):
         return web.Response(status=302, headers={"Location": self.store_url})
-    
+
     async def install_plugin(self, request):
         data = await request.post()
         get_event_loop().create_task(self.request_plugin_install(data["artifact"], data["version"], data["hash"]))
@@ -83,7 +83,7 @@ class PluginBrowser:
         tab = await get_tab("QuickAccess")
         await tab.open_websocket()
         await tab.evaluate_js(f"addPluginInstallPrompt('{artifact}', '{version}', '{request_id}')")
-    
+
     async def confirm_plugin_install(self, request_id):
         request = self.install_requests.pop(request_id)
         await self._install(request.gh_url, request.version, request.hash)
