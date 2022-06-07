@@ -37,8 +37,8 @@ logger = getLogger("Main")
 from traceback import print_exc
 
 async def chown_plugin_dir(_):
-    Popen(["chown", "-R", "deck:deck", CONFIG["plugin_path"]])
-    Popen(["chmod", "-R", "555", CONFIG["plugin_path"]])
+    Popen(["chown", "-R", "deck:", CONFIG["plugin_path"]])
+    Popen(["chmod", "755", CONFIG["plugin_path"]])
 
 class PluginManager:
     def __init__(self) -> None:
@@ -50,7 +50,6 @@ class PluginManager:
 
         jinja_setup(self.web_app, loader=FileSystemLoader(path.join(path.dirname(__file__), 'templates')))
         self.web_app.on_startup.append(self.inject_javascript)
-        self.web_app.on_startup.append(chown_plugin_dir)
         self.web_app.add_routes([static("/static", path.join(path.dirname(__file__), 'static'))])
         self.loop.create_task(self.method_call_listener())
         self.loop.create_task(self.loader_reinjector())
