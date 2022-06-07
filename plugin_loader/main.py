@@ -2,7 +2,7 @@ from logging import getLogger, basicConfig, INFO, DEBUG, Filter, root
 from os import getenv
 
 CONFIG = {
-    "plugin_path": getenv("PLUGIN_PATH", getenv('HOME', '/home/deck/')+"/.local/share/homebrew/plugins/"),
+    "plugin_path": getenv("PLUGIN_PATH", "/home/deck/.local/share/homebrew/plugins/"),
     "server_host": getenv("SERVER_HOST", "127.0.0.1"),
     "server_port": int(getenv("SERVER_PORT", "1337")),
     "live_reload": getenv("LIVE_RELOAD", "1") == "1",
