@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$UID" -eq 0 ]; then
+if [ "$EUID" != 0 ]; then
     echo "Please run this as root."
     exit 1
 fi
