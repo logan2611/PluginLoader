@@ -7,7 +7,7 @@ fi
 
 echo "Installing Steam Deck Plugin Loader release..."
 
-HOME=$(sudo -u "$SUDO_USER" -i eval 'echo $HOME')
+HOME=$(sudo -H -u "$SUDO_USER" -i eval 'echo $HOME')
 HOMEBREW_FOLDER="${HOME}/.local/share/homebrew/"
 
 # Create folder structure
