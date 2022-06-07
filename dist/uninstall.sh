@@ -7,6 +7,7 @@ fi
 
 echo "Uninstalling Steam Deck Plugin Loader..."
 
+HOME=$(sudo -u "$SUDO_USER" -i eval 'echo $HOME')
 HOMEBREW_FOLDER="${HOME}/.local/share/homebrew/"
 
 # Disable and remove services

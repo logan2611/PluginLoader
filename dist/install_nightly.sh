@@ -7,12 +7,13 @@ fi
 
 echo "Installing Steam Deck Plugin Loader nightly..."
 
+HOME=$(sudo -u "$SUDO_USER" -i eval 'echo $HOME')
 HOMEBREW_FOLDER="${HOME}/.local/share/homebrew/"
 
 # Create folder structure
 rm -rf "${HOMEBREW_FOLDER}/services"
-sudo -u $USER mkdir -p "${HOMEBREW_FOLDER}/services"
-sudo -u $USER mkdir -p "${HOMEBREW_FOLDER}/plugins"
+sudo -u $SUDO_USER mkdir -p "${HOMEBREW_FOLDER}/services"
+sudo -u $SUDO_USER mkdir -p "${HOMEBREW_FOLDER}/plugins"
 
 # Download latest nightly build and install it
 rm -rf /tmp/plugin_loader
